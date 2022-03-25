@@ -23,20 +23,20 @@ app.use(express.static(publicDirectoryPath))
 app.get('',(req,res)=>{
     res.render('index',{
         title:'Weather App',
-        name:'Andrew Mead'
+        name:'Khushi Patel'
     })
 })
 
 app.get('/about',(req,res)=>{
     res.render('about',{
         title:'About me',
-        name:'Andrew Mead'
+        name:'Khushi Patel'
     })
 })
 app.get('/weather',(req,res)=>{
     if(!req.query.address){
         return res.send({
-            error:'Please provide address'
+            error:'You must provide your Location'
         })
     }
         geocode(req.query.address,(error,{latitude,longitude,location}={})=>{
@@ -59,14 +59,14 @@ app.get('/help',(req,res)=>{
     res.render('help',{
         title:'Help',
         message:'Get help here',
-        name:'Andrew Mead'
+        name:'Khushi Patel'
     })
 })
 app.get('/help/*',(req,res)=>{
     res.render('error',
     {
         title:'Help error',
-        name:'Andrew Mead',
+        name:'Khushi Patel',
         error:'Help article not found'
     }
     )
@@ -74,8 +74,8 @@ app.get('/help/*',(req,res)=>{
 app.get('*',(req,res)=>{
     res.render('error',
     {
-        title:'Page error',
-        name:'Andrew Mead',
+        title:'404 error',
+        name:'Khushi Patel',
         error:'Page not found'
     }
     )
